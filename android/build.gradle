@@ -28,6 +28,9 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 30
     namespace 'carnegietechnologies.gallery_saver'
+    kotlinOptions {
+        jvmTarget = '1.8' // <-- Change this from '11' to '1.8'
+    }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -37,6 +40,11 @@ android {
     }
     lintOptions {
         disable 'InvalidPackage'
+    }
+    // Add this block to ensure Java 1.8 compatibility
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
